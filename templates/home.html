@@ -1,71 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html >
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Home Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-        }
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 
-        header {
-            text-align: center;
-            padding: 20px;
-            background-color: #f2f2f2;
-        }
-
-        h1 {
-            color: #333;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #333;
-            padding: 10px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-            margin: 0 10px;
-        }
-
-        main {
-            padding: 20px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #333;
-            color: white;
-        }
-    </style>
+  
 </head>
+
 <body>
+ <div class="login">
+	<h1>Boston House Price Prediction</h1>
 
-    <header>
-        <h1>Welcome to My Home Page</h1>
-    </header>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+      <input type="text" name="crim" placeholder="CRIM" required="required" /><br>
+    	<input type="text" name="zn" placeholder="ZN" required="required" /><br>
+        <input type="text" name="indus" placeholder="INDUS" required="required" /><br>
+        <input type="text" name="chas" placeholder="CHAS" required="required" /><br>
+        <input type="text" name="nox" placeholder="NOX" required="required" /><br>
+        <input type="text" name="rm" placeholder="RM" required="required" /><br>
+        <input type="text" name="age" placeholder="Age" required="required" /><br>
+        <input type="text" name="dis" placeholder="DIS" required="required" /><br>
+        <input type="text" name="rad" placeholder="RAD" required="required" /><br>
+        <input type="text" name="tax" placeholder="TAX" required="required" /><br>
+        <input type="text" name="ptratio" placeholder="PTRATIO" required="required" /><br>
+        <input type="text" name="black" placeholder="B" required="required" /><br>
+        <input type="text" name="lstat" placeholder="LSTAT" required="required" /><br>
 
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-    </nav>
+       
 
-    <main>
-        <h2>Main Content Goes Here</h2>
-        <p>This is a simple home page.</p>
-    </main>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
 
-    <footer>
-        <p>&copy; 2023 My Home Page</p>
-    </footer>
+   <br>
+   <br>
+  
+   
+ </div>
+ {{prediction_text}}
 
 </body>
 </html>
